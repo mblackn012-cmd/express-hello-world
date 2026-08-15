@@ -4,15 +4,16 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post('/create-user', (req, res) => {
-    console.log("Received POST request to /create-user");
+// এখানে রাউটটি /create-user এর বদলে সরাসরি মূল লিংক / (slash) করে দেওয়া হলো
+app.post('/', (req, res) => {
+    console.log("Received POST request!");
     console.log("Request Body:", req.body);
 
     const username = req.body.username;
     const password = req.body.password;
     
-    console.log("Extracted Username:", username);
-    console.log("Extracted Password:", password);
+    console.log("Username:", username);
+    console.log("Password:", password);
     
     res.send('Success');
 });
