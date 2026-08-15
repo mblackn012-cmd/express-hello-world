@@ -4,12 +4,16 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// এখানে সরাসরি /create-user রাউটটি যুক্ত করে দেওয়া হলো
 app.post('/create-user', (req, res) => {
+    console.log("Received POST request to /create-user");
+    console.log("Request Body:", req.body);
+
     const username = req.body.username;
     const password = req.body.password;
     
-    console.log("New User Received:", username, password);
+    console.log("Extracted Username:", username);
+    console.log("Extracted Password:", password);
+    
     res.send('Success');
 });
 
